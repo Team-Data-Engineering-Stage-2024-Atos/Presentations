@@ -1,0 +1,11 @@
+Flask
+requests
+beautifulsoup4
+pandas
+kaggle
+hdfs
+tqdm
+pyhive
+pyspark
+thirft
+thrift_sasl

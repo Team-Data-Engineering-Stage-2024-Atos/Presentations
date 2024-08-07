@@ -1,0 +1,6 @@
+
+5128581	New York	New York	NY, New York City	40.71427	-74.00597	P	PPL	US		NY		0	10	10	America/New_York	2020-01-01
+5368361	Los Angeles	Los Angeles	LA	34.05223	-118.24368	P	PPL	US		CA		0	71	71	America/Los_Angeles	2020-01-01
+2643743	London	London	London	51.50853	-0.12574	P	PPL	GB		ENG		0	11	11	Europe/London	2020-01-01
+2988507	Paris	Paris	Paris	48.85341	2.3488	P	PPL	FR		ARA		0	35	35	Europe/Paris	2020-01-01
+2950159	Berlin	Berlin	Berlin	52.52437	13.41053	P	PPL	DE		BE		0	34	34	Europe/Berlin	2020-01-01

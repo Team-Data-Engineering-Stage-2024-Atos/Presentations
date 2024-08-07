@@ -1,0 +1,2 @@
+sudo -u postgres psql -c "CREATE USER hive WITH ENCRYPTED PASSWORD 'passer'; CREATE DATABASE metastore; GRANT ALL ON DATABASE metastore TO hive;" && \
+	cp /usr/share/java/postgresql-42.3.3.jar /opt/hive/lib/postgresql.jar
