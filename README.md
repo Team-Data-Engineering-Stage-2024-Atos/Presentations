@@ -1,4 +1,4 @@
-### ATOS - STAGE DATA ENGINEERING
+# ATOS - STAGE DATA ENGINEERING
 
 # PROJET 1 - Présentation d'Apache Spark / Configuration et Installation d'un Cluster Big Data (Hadoop, Spark, Hive, Postgres et Jupyter)
 **Date:** 19/07/2024 - 15H00 GMT  
@@ -33,14 +33,14 @@ Ce projet consiste en la création et la configuration d'un cluster Big Data com
 
 
 # PROJET 2 - Rapport de Stage / Pipeline de traitement batch utilisant Apache Spark et Hive
-**Date:** 08/08/2024 - 13H15 GMT  
+**Date:** 08/08/2024 - 13H30 GMT  
 **Auteur:** Mouhamadou Adji BARRY
 
 ---
 
 ## Rapport de Stage et Projet
 Un dossier contenant le rapport de stage détaillé ainsi qu'un projet de pipeline de traitement par lots sur les données COVID-19 a été ajouté. Le rapport de stage documente l'ensemble des activités réalisées, les défis rencontrés, et les solutions mises en œuvre.
-Le rapport de stage détaille les activités menées, les technologies utilisées, les défis rencontrés et les solutions mises en œuvre. Voici les points clés abordés dans le rapport :
+Voici les points clés abordés dans le rapport :
 
 ### Table des Matières
 1. Introduction
@@ -77,7 +77,7 @@ Le rapport de stage détaille les activités menées, les technologies utilisée
 - **Perspectives professionnelles** : Familiarisation avec les technologies et les pratiques du Big Data, préparation à une carrière dans ce domaine.
 - **Recommandations pour les futurs stagiaires** : Se familiariser avec les outils et technologies du Big Data avant de commencer le stage.
 
-Pour plus de détails, veuillez consulter le [Rapport de Stage](https://github.com/Team-Data-Engineering-Stage-2024-Atos/Presentations/tree/barryma-rapport-stage1).
+Pour plus de détails, veuillez consulter le [Rapport de Stage](https://github.com/Team-Data-Engineering-Stage-2024-Atos/Presentations/blob/barryma-rapport-stage1/barryma_rapport_stage_1/Rapport_Stage_Atos_BARRY_Mouhamadou_Adji.pdf).
 
 ## Documentation (Work in progress)
 
