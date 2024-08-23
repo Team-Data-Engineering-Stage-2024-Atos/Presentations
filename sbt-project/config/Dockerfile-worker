@@ -1,0 +1,88 @@
+FROM redhat/ubi8:8.10
+
+ARG HADOOP_VERSION=3.3.6
+ARG SPARK_VERSION=2.4.7
+
+# Dependencies
+RUN yum install -y java-1.8.0-openjdk-devel wget sudo \
+    procps-ng hostname openssh-server openssh-clients sshpass && \
+    yum clean all 
+
+# Tools
+RUN wget https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz && \
+    tar -xvzf hadoop-${HADOOP_VERSION}.tar.gz && \
+    mv hadoop-${HADOOP_VERSION} /usr/local/hadoop && \
+    rm hadoop-${HADOOP_VERSION}.tar.gz
+
+RUN wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz && \
+    tar -xvzf spark-${SPARK_VERSION}-bin-hadoop2.7.tgz && \
+    mv spark-${SPARK_VERSION}-bin-hadoop2.7 /usr/local/spark && \
+    rm spark-${SPARK_VERSION}-bin-hadoop2.7.tgz
+
+# Env
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk \
+    HADOOP_HOME=/usr/local/hadoop \
+    HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop \
+    SPARK_HOME=/usr/local/spark \
+    PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
+RUN wget https://jdbc.postgresql.org/download/postgresql-42.3.1.jar -O $SPARK_HOME/jars/postgresql-42.3.1.jar 
+
+RUN useradd -ms /bin/bash hadoopuser && \
+    echo "hadoopuser:passer" | chpasswd && usermod -aG wheel hadoopuser && \
+    chown -R hadoopuser:hadoopuser /usr/local/hadoop /usr/local/spark && \
+    sed -i 's/^# %wheel/%wheel/' /etc/sudoers
+
+RUN echo 'hadoopuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+ENV HDFS_DATANODE_USER=hadoopuser \
+    HDFS_SECONDARYNAMENODE_USER=hadoopuser
+
+RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk' >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+COPY hadoop/core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml
+COPY hadoop/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+COPY hadoop/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml
+COPY hadoop/mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml
+COPY hadoop/log4j.properties $HADOOP_HOME/etc/hadoop/log4j.properties
+
+COPY spark/spark-defaults.conf $SPARK_HOME/conf/spark-defaults.conf
+COPY spark/spark-env.sh $SPARK_HOME/conf/spark-env.sh
+
+RUN mkdir -p /var/hdfs/name && chown -R hadoopuser:hadoopuser /var/hdfs/name && chmod -R 755 /var/hdfs/name && \
+    mkdir -p /var/hdfs/data && chown -R hadoopuser:hadoopuser /var/hdfs/data && chmod -R 755 /var/hdfs/data
+
+# SSH Configuration
+RUN mkdir /var/run/sshd && mkdir -p /home/hadoopuser/.ssh && \
+    ssh-keygen -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' && \
+    ssh-keygen -t ecdsa -b 521 -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
+    ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N '' && \
+    ssh-keygen -t rsa -N "" -f /home/hadoopuser/.ssh/id_rsa && \
+    cat /home/hadoopuser/.ssh/id_rsa.pub >> /home/hadoopuser/.ssh/authorized_keys && \
+    chmod 600 /home/hadoopuser/.ssh/authorized_keys && \
+    chown -R hadoopuser:hadoopuser /home/hadoopuser/.ssh
+
+# Ensure the sshd service runs
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
+    echo 'hadoopuser:passer' | chpasswd
+
+
+
+RUN echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk" >> /home/hadoopuser/.bashrc && \
+    echo "export HADOOP_HOME=/usr/local/hadoop" >> /home/hadoopuser/.bashrc && \
+    echo "export SPARK_HOME=/usr/local/spark" >> /home/hadoopuser/.bashrc && \
+    echo "export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop" >> /home/hadoopuser/.bashrc && \
+    echo 'export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$JAVA_HOME/bin' >> /home/hadoopuser/.bashrc
+
+# Final
+EXPOSE 22 9864 8081 8082
+
+COPY entrypoint-worker.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+USER root
+RUN chmod 600 /etc/ssh/sshd_config
+
+USER hadoopuser
+
+CMD [ "/usr/local/bin/entrypoint.sh" ]
