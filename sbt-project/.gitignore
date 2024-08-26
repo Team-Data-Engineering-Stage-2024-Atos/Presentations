@@ -2,3 +2,4 @@ datasets/
 app/target/
 app/project/project
 app/project/target
+app/logs/*
