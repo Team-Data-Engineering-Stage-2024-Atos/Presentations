@@ -53,6 +53,15 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+
+hdfs dfs -mkdir -p /user/hadoopuser/spark-jars
+hdfs dfs -mkdir -p /user/hadoopuser/spark-logs
+hdfs dfs -chmod 775 /user/hadoopuser/spark-logs
+hdfs dfs -chmod 775 /user/hadoopuser/spark-jars
+
+hdfs dfs -put $SPARK_HOME/jars/*.jar /user/hadoopuser/spark-jars/
+
+
 $SPARK_HOME/sbin/start-history-server.sh
 if [ $? -ne 0 ]; then
     echo 'Failed to start Spark History Server'
