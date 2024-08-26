@@ -2,4 +2,8 @@ datasets/
 app/target/
 app/project/project
 app/project/target
-app/logs/*
+app/logs/
+sparkDataWarehouse/
+misc.md
+test1.scala
+test2.scala
