@@ -1,26 +1,33 @@
 package com.datafusion
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
-import org.apache.spark.sql.types._
-import com.datafusion.pipelines._
 import com.typesafe.config.ConfigFactory
+import org.apache.spark.sql.{DataFrame, SparkSession, SaveMode}
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
+import org.apache.spark.ml.feature.RegexTokenizer
+import com.datafusion.pipelines._
+import org.apache.log4j.Logger
 
 object Main {
   def main(args: Array[String]): Unit = {
+    val logger = Logger.getLogger(getClass.getName)
+
     val config = ConfigFactory.load()
+
     val appName = config.getString("spark.appName")
     val master = config.getString("spark.master")
-
+    val jdbcUrl = config.getString("jdbc.url")
+    val jdbcUser = config.getString("jdbc.user")
+    val jdbcPassword = config.getString("jdbc.password")
+    
     val spark = SparkSession.builder()
       .appName(appName)
       .master(master)
       .getOrCreate()
 
-    val jdbcUrl = "jdbc:postgresql://postgres:5432/sparkdb"
     val jdbcProperties = new java.util.Properties()
-    jdbcProperties.setProperty("user", "sparkuser")
-    jdbcProperties.setProperty("password", "passer")
-
+    jdbcProperties.setProperty("user", jdbcUser)
+    jdbcProperties.setProperty("password", jdbcPassword)
 
     val salesSchema = StructType(Array(
       StructField("Invoice", StringType, nullable = true),
@@ -32,7 +39,6 @@ object Main {
       StructField("Customer ID", StringType, nullable = true),
       StructField("Country", StringType, nullable = true)
     ))
-
 
     val customerSchema = StructType(Array(
       StructField("CUST_ID", StringType, nullable = true),
@@ -54,7 +60,6 @@ object Main {
       StructField("PRC_FULL_PAYMENT", DoubleType, nullable = true),
       StructField("TENURE", IntegerType, nullable = true)
     ))
-
 
     val productSchema = StructType(Array(
       StructField("Uniq Id", StringType, nullable = true),
@@ -87,50 +92,74 @@ object Main {
       StructField("Discontinued", BooleanType, nullable = true)
     ))
 
+    logger.info("Loading datasets...")
+    val salesData = loadDataset(spark, "hdfs://master-namenode:9000/user/hadoopuser/datasets/online_retail_II.csv", salesSchema, logger)
+    val customerData = loadDataset(spark, "hdfs://master-namenode:9000/user/hadoopuser/datasets/ccdata.csv", customerSchema, logger)
+    val productData = loadDataset(spark, "hdfs://master-namenode:9000/user/hadoopuser/datasets/amazon-product-listing-data.csv", productSchema, logger)
 
+    // New Data Normalization and Tokenization
+    logger.info("Normalizing and Tokenizing datasets...")
+    val salesDataNormalized = normalizeText(salesData, "Description")
+    val productDataNormalized = normalizeText(productData, "Title")
 
-    // Load datasets from HDFS
-    val salesData = loadDataset(spark, "hdfs://master-namenode:9000/user/hadoopuser/datasets/online_retail_II.csv", salesSchema)
-    val customerData = loadDataset(spark, "hdfs://master-namenode:9000/user/hadoopuser/datasets/ccdata.csv", customerSchema)
-    val productData = loadDataset(spark, "hdfs://master-namenode:9000/user/hadoopuser/datasets/amazon-product-listing-data.csv", productSchema)
+    val salesDataTokenized = tokenizeText(spark, salesDataNormalized, "Description")
+    val productDataTokenized = tokenizeText(spark, productDataNormalized, "Title")
 
+    // Run pipelines and save results
+    logger.info("Running pipelines and saving results to PostgreSQL...")
+    val productPerformanceResult = ProductPerformancePipeline.run(spark, salesDataTokenized, productDataTokenized)
+    saveToPostgres(productPerformanceResult, jdbcUrl, jdbcProperties, "product_performance_analysis", logger)
 
-    // val salesData = loadCsvFromLocal(spark, "/datasets/online_retail_II.csv")
-    // val customerData = loadCsvFromLocal(spark, "/datasets/ccdata.csv")
-    // val productData = loadCsvFromLocal(spark, "/datasets/amazon-product-listing-data.csv")
+    val salesAnalysisResult = SalesAnalysisPipeline.run(spark, salesDataTokenized)
+    saveToPostgres(salesAnalysisResult, jdbcUrl, jdbcProperties, "sales_analysis", logger)
 
+    val cltvResult = CLTVPipeline.run(spark, salesDataTokenized, customerData)
+    saveToPostgres(cltvResult, jdbcUrl, jdbcProperties, "cltv_analysis", logger)
 
-    val productPerformanceResult = ProductPerformancePipeline.run(spark, salesData, productData)
-    saveToPostgres(productPerformanceResult, jdbcUrl, jdbcProperties, "product_performance_analysis")
-
-    val salesAnalysisResult = SalesAnalysisPipeline.run(spark, salesData)
-    saveToPostgres(salesAnalysisResult, jdbcUrl, jdbcProperties, "sales_analysis")
-
-    val cltvResult = CLTVPipeline.run(spark, salesData, customerData)
-    saveToPostgres(cltvResult, jdbcUrl, jdbcProperties, "cltv_analysis")
-
-    val repeatPurchaseResult = RepeatPurchasePipeline.run(spark, salesData)
-    saveToPostgres(repeatPurchaseResult, jdbcUrl, jdbcProperties, "repeat_purchase_analysis")
+    val repeatPurchaseResult = RepeatPurchasePipeline.run(spark, salesDataTokenized)
+    saveToPostgres(repeatPurchaseResult, jdbcUrl, jdbcProperties, "repeat_purchase_analysis", logger)
 
     val anomalyDetectionResult = AnomalyDetectionPipeline.run(spark, customerData)
-    saveToPostgres(anomalyDetectionResult, jdbcUrl, jdbcProperties, "transaction_anomalies")
+    saveToPostgres(anomalyDetectionResult, jdbcUrl, jdbcProperties, "transaction_anomalies", logger)
 
     spark.stop()
   }
 
-  def loadCsvFromLocal(spark: SparkSession, path: String): DataFrame = {
-    spark.read.option("header", "true").option("inferSchema", "true").csv(path)
+  def loadDataset(spark: SparkSession, path: String, schema: StructType, logger: Logger): DataFrame = {
+    try {
+      val df = spark.read
+        .option("header", "true")
+        .schema(schema)
+        .csv(path)
+      logger.info(s"Loaded dataset from $path with ${df.count()} rows.")
+      df
+    } catch {
+      case e: Exception =>
+        logger.error(s"Error loading dataset from $path: ${e.getMessage}")
+        spark.emptyDataFrame
+    }
   }
 
-  def loadDataset(spark: SparkSession, path: String, schema: StructType): DataFrame = {
-    spark.read
-      .option("header", "true")
-      .schema(schema)
-      .csv(path)
+  def normalizeText(df: DataFrame, columnName: String): DataFrame = {
+    df.withColumn(columnName, lower(regexp_replace(col(columnName), "[^a-zA-Z0-9\\s]", "")))
   }
 
+  def tokenizeText(spark: SparkSession, df: DataFrame, inputCol: String): DataFrame = {
+    val tokenizer = new RegexTokenizer().setInputCol(inputCol).setOutputCol(s"${inputCol}Tokens").setPattern("\\W+")
+    tokenizer.transform(df)
+  }
 
-  def saveToPostgres(dataFrame: DataFrame, jdbcUrl: String, jdbcProperties: java.util.Properties, tableName: String): Unit = {
-    dataFrame.write.mode("overwrite").jdbc(jdbcUrl, tableName, jdbcProperties)
+  def saveToPostgres(dataFrame: DataFrame, jdbcUrl: String, jdbcProperties: java.util.Properties, tableName: String, logger: Logger): Unit = {
+    if (dataFrame.isEmpty) {
+      logger.warn(s"DataFrame for $tableName is empty. Skipping write to PostgreSQL.")
+    } else {
+      try {
+        dataFrame.write.mode(SaveMode.Overwrite).jdbc(jdbcUrl, tableName, jdbcProperties)
+        logger.info(s"Successfully wrote DataFrame to $tableName in PostgreSQL.")
+      } catch {
+        case e: Exception =>
+          logger.error(s"Error saving DataFrame to $tableName: ${e.getMessage}")
+      }
+    }
   }
 }

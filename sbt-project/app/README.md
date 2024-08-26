@@ -88,7 +88,19 @@ spark-submit --class com.datafusion.Main --master yarn --deploy-mode cluster tar
 Pour exécuter l'application localement, assurez-vous que Spark est configuré en mode standalone. Pour l'exécution sur un cluster, utilisez YARN ou un autre gestionnaire de ressources compatible avec Spark.
 
 ```bash
-spark-submit --class com.datafusion.Main --master spark://master-namenode:7077 --deploy-mode cluster target/scala-2.11/DataFusionPipeline-assembly-1.0.jar
+spark-submit --class com.datafusion.Main --master spark://master-namenode:7077 --deploy-mode client target/scala-2.11/DataFusionPipeline-assembly-1.0.jar
+```
+
+## Tests Unitaires
+
+Les tests unitaires sont inclus pour chaque pipeline dans le répertoire `test/scala/com/datafusion/pipelines`. Ces tests vérifient que chaque pipeline fonctionne correctement et que les transformations de données sont réalisées comme attendu.
+
+### Exécution des Tests avec Couverture de Code
+
+Pour exécuter les tests avec une couverture de code, utilisez la commande suivante :
+
+```bash
+sbt clean coverage test
 ```
 
 ### Dépannage
@@ -187,14 +199,38 @@ Les liens logiques entre les datasets sont essentiels pour créer une vue unifi�
 - **Classement** : Classement des produits par ordre décroissant de revenus.
 - **Résultat** : Un DataFrame présentant les produits les plus vendus en termes de quantité et de revenus générés.
 
-## Tests Unitaires
+## Observation et Interprétation d'échantillons
 
-Les tests unitaires sont inclus pour chaque pipeline dans le répertoire `test/scala/com/datafusion/pipelines`. Ces tests vérifient que chaque pipeline fonctionne correctement et que les transformations de données sont réalisées comme attendu.
+### Transaction Anomalies
 
-### Exécution des Tests avec Couverture de Code
+Cette table identifie des anomalies dans les transactions des clients. Les colonnes fournies incluent l'ID client (CUST_ID), le solde actuel (BALANCE), la limite de crédit (CREDIT_LIMIT), et les avances de fonds en espèces (CASH_ADVANCE).
 
-Pour exécuter les tests avec une couverture de code, utilisez la commande suivante :
+- **Observation 1:**
+Certains clients ont des soldes qui sont très proches, voire supérieurs à leur limite de crédit (par exemple, C10067 et C10082). Cela pourrait indiquer un risque de dépassement de la limite de crédit ou une mauvaise gestion des finances.
 
-```bash
-sbt clean coverage test
-```
+- **Observation 2:** Les avances en espèces sont également assez élevées pour certains clients par rapport à leur solde total (par exemple, C10227), ce qui peut signaler un comportement à risque ou un besoin urgent de liquidités.
+Hypothèse: Ces anomalies pourraient être des indicateurs de comportements frauduleux ou de clients en difficulté financière.
+
+### Sales Analysis
+
+Cette table analyse les ventes par article, indiquant le code d'article (StockCode), la quantité totale vendue (TotalQuantity), et le revenu total généré (TotalRevenue).
+
+- **Observation 1:** Certains articles (comme le StockCode 85123A) ont un volume de ventes élevé avec des revenus substantiels. Cela pourrait signifier qu'il s'agit de produits populaires ou de grande valeur.
+
+- **Observation 2:** Le produit DOT, bien que générant un revenu élevé, a une quantité totale vendue relativement faible par rapport aux autres produits. Cela pourrait indiquer un produit premium ou de niche.
+Hypothèse: Ces données pourraient être utilisées pour identifier les articles les plus rentables et adapter les stratégies de stock en conséquence.
+
+### Repeat Purchase Analysis
+
+Cette table se concentre sur les achats répétés des clients, avec des informations sur le nombre total d'achats (TotalPurchases) et la quantité totale achetée (TotalQuantity).
+
+- **Observation 1:** Le client avec un Customer ID vide a le plus grand nombre d'achats et la plus grande quantité totale, ce qui est suspect. Il pourrait s'agir d'une erreur de données ou d'un problème de traçabilité.
+
+- **Observation 2:** Le client 14911.0 a réalisé un nombre significatif d'achats avec une quantité totale achetée extrêmement élevée. Cela pourrait indiquer un client fidèle ou une entreprise réalisant des achats en gros.
+Hypothèse: L'analyse de ces données pourrait aider à identifier les clients les plus fidèles et les segments de marché à forte valeur.
+
+## Interprétations Globales
+
+- **Gestion des Risques :** Les données de la table transaction_anomalies pourraient être croisées avec celles des achats répétés pour évaluer si des comportements anormaux sont liés à des clients fidèles, ou si des transactions inhabituelles proviennent de nouveaux clients.
+
+- **Optimisation des Ventes :** Les résultats de l'analyse des ventes peuvent être utilisés pour concentrer les efforts marketing sur les articles les plus rentables et identifier des opportunités d'upsell ou de cross-sell pour les clients récurrents.

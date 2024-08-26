@@ -53,5 +53,12 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+$SPARK_HOME/sbin/start-history-server.sh
+if [ $? -ne 0 ]; then
+    echo 'Failed to start Spark History Server'
+    exit 1
+fi
+
+
 # Keep the container running
 tail -f /dev/null

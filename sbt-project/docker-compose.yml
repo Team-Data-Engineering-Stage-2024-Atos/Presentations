@@ -18,6 +18,7 @@ services:
     volumes:
       - hadoop-namenode:/var/hdfs/name
       - ./app:/app
+      - ./datasets:/datasets
 
   worker-datanode1:
     build:

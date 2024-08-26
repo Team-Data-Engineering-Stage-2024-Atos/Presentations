@@ -88,9 +88,9 @@ Les datasets utilisés dans ce projet sont disponibles sur Kaggle. Pour les tél
 
     - Les fichiers téléchargés doivent être placés dans le répertoire datasets/ :
       datasets
-        ├── amazon-product-listing-data.csv
-        ├── ccdata.csv
-        └── online_retail_II.csv
+      ├── amazon-product-listing-data.csv
+      ├── ccdata.csv
+      └── online_retail_II.csv
 
 ## Architecture du Cluster
 

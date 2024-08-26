@@ -1,0 +1,842 @@
+Starting Docker containers...
+time="2024-08-25T19:25:13Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container worker-datanode2  Created
+ Container worker-datanode1  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Executing HDFS operation: setup_spark_directories
+mkdir: cannot create directory '/logs': Permission denied
+Error during: docker exec setup_spark_directories
+Starting Docker containers...
+time="2024-08-25T19:27:52Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container worker-datanode2  Created
+ Container worker-datanode1  Created
+ Container master-namenode  Starting
+ Container postgres  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Executing HDFS operation: setup_spark_directories
+mkdir: cannot create directory '/var/local/logs': Permission denied
+Error during: docker exec setup_spark_directories
+Starting Docker containers...
+time="2024-08-25T19:29:17Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container postgres  Created
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container master-namenode  Starting
+ Container postgres  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode2  Started
+ Container worker-datanode1  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Executing HDFS operation: setup_spark_directories
+Setting up Spark directories in HDFS...
+Error during: docker exec setup_spark_directories
+Starting Docker containers...
+time="2024-08-25T19:52:53Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Container postgres  Creating
+ Container master-namenode  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode1  Creating
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container master-namenode  Starting
+ Container postgres  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Connecting to the container...
+Stopping Docker containers...
+time="2024-08-25T19:54:32Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Container worker-datanode1  Stopping
+ Container postgres  Stopping
+ Container worker-datanode2  Stopping
+ Container postgres  Stopped
+ Container postgres  Removing
+ Container postgres  Removed
+ Container worker-datanode1  Stopped
+ Container worker-datanode1  Removing
+ Container worker-datanode1  Removed
+ Container worker-datanode2  Stopped
+ Container worker-datanode2  Removing
+ Container worker-datanode2  Removed
+ Container master-namenode  Stopping
+ Container master-namenode  Stopped
+ Container master-namenode  Removing
+ Container master-namenode  Removed
+ Network sbt_task_hadoop  Removing
+ Network sbt_task_hadoop  Removed
+Docker containers stopped successfully.
+Starting Docker containers...
+time="2024-08-25T19:59:38Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container master-namenode  Created
+ Container worker-datanode1  Creating
+ Container worker-datanode2  Creating
+ Container postgres  Created
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+lstat /path: no such file or directory
+Error during: docker cp /path/to/hdfs-operations.sh
+Copying HDFS operations script to container...
+lstat /path: no such file or directory
+Error during: docker cp /path/to/hdfs-operations.sh
+Connecting to the container...
+Stopping Docker containers...
+time="2024-08-25T20:03:28Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Container postgres  Stopping
+ Container worker-datanode2  Stopping
+ Container worker-datanode1  Stopping
+ Container postgres  Stopped
+ Container postgres  Removing
+ Container postgres  Removed
+ Container worker-datanode2  Stopped
+ Container worker-datanode2  Removing
+ Container worker-datanode2  Removed
+ Container worker-datanode1  Stopped
+ Container worker-datanode1  Removing
+ Container worker-datanode1  Removed
+ Container master-namenode  Stopping
+ Container master-namenode  Stopped
+ Container master-namenode  Removing
+ Container master-namenode  Removed
+ Network sbt_task_hadoop  Removing
+ Network sbt_task_hadoop  Removed
+Docker containers stopped successfully.
+Connecting to the container...
+Starting Docker containers...
+time="2024-08-25T20:07:11Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode2  Started
+ Container worker-datanode1  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Starting Docker containers...
+time="2024-08-25T20:13:33Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container master-namenode  Starting
+ Container postgres  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode1  Starting
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+lstat /home/hadoopuser: no such file or directory
+Error during: docker cp /home/hadoopuser/hdfs-operations.sh
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Starting Docker containers...
+time="2024-08-25T20:21:59Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Container postgres  Creating
+ Container master-namenode  Creating
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container postgres  Created
+ Container worker-datanode2  Created
+ Container worker-datanode1  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Starting Docker containers...
+time="2024-08-25T20:37:27Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container postgres  Created
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container master-namenode  Starting
+ Container postgres  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode1  Starting
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Stopping Docker containers...
+time="2024-08-25T21:11:51Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Container postgres  Stopping
+ Container worker-datanode2  Stopping
+ Container worker-datanode1  Stopping
+ Container postgres  Stopped
+ Container postgres  Removing
+ Container postgres  Removed
+ Container worker-datanode1  Stopped
+ Container worker-datanode1  Removing
+ Container worker-datanode2  Stopped
+ Container worker-datanode2  Removing
+ Container worker-datanode1  Removed
+ Container worker-datanode2  Removed
+ Container master-namenode  Stopping
+ Container master-namenode  Stopped
+ Container master-namenode  Removing
+ Container master-namenode  Removed
+ Network sbt_task_hadoop  Removing
+ Network sbt_task_hadoop  Removed
+Docker containers stopped successfully.
+Starting Docker containers...
+time="2024-08-26T08:35:33Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task/docker-compose.yml: `version` is obsolete"
+ Network sbt_task_hadoop  Creating
+ Network sbt_task_hadoop  Created
+ Volume "sbt_task_hadoop-datanode2"  Creating
+ Volume "sbt_task_hadoop-datanode2"  Created
+ Volume "sbt_task_postgres-data"  Creating
+ Volume "sbt_task_postgres-data"  Created
+ Volume "sbt_task_hadoop-namenode"  Creating
+ Volume "sbt_task_hadoop-namenode"  Created
+ Volume "sbt_task_hadoop-datanode1"  Creating
+ Volume "sbt_task_hadoop-datanode1"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode1  Creating
+ Container worker-datanode2  Creating
+ Container worker-datanode2  Created
+ Container worker-datanode1  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Starting Docker containers...
+time="2024-08-26T08:58:28Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+#0 building with "default" instance using docker driver
+
+#1 [master-namenode internal] load build definition from Dockerfile-master
+#1 transferring dockerfile: 4.77kB done
+#1 DONE 0.0s
+
+#2 [postgres internal] load build definition from Dockerfile-postgres
+#2 transferring dockerfile: 131B done
+#2 DONE 0.0s
+
+#3 [master-namenode internal] load metadata for docker.io/redhat/ubi8:8.10
+#3 ...
+
+#4 [postgres auth] library/postgres:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [master-namenode auth] redhat/ubi8:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [postgres internal] load metadata for docker.io/library/postgres:15.7
+#6 ...
+
+#3 [master-namenode internal] load metadata for docker.io/redhat/ubi8:8.10
+#3 DONE 2.6s
+
+#7 [master-namenode internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#6 [postgres internal] load metadata for docker.io/library/postgres:15.7
+#6 DONE 2.6s
+
+#8 [master-namenode  1/24] FROM docker.io/redhat/ubi8:8.10@sha256:d5e2d1ddf34b573673581940f1341c7b3301ff8efde28f17100b31a3df7d94b6
+#8 DONE 0.0s
+
+#9 [postgres internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.0s
+
+#10 [postgres 1/2] FROM docker.io/library/postgres:15.7@sha256:68b988a164c8bdf0752fa7a4ae2d4b34a058e21c6327e69f741c081a38e97254
+#10 DONE 0.0s
+
+#11 [master-namenode internal] load build context
+#11 transferring context: 2.05kB done
+#11 DONE 0.0s
+
+#12 [postgres internal] load build context
+#12 transferring context: 579B done
+#12 DONE 0.0s
+
+#13 [postgres 2/2] COPY postgres/init.sql /docker-entrypoint-initdb.d/
+#13 CACHED
+
+#14 [master-namenode 20/24] COPY spark/spark-defaults.conf /usr/local/spark/conf/spark-defaults.conf
+#14 CACHED
+
+#15 [master-namenode 21/24] COPY spark/spark-env.sh /usr/local/spark/conf/spark-env.sh
+#15 CACHED
+
+#16 [master-namenode  2/24] RUN yum install -y java-1.8.0-openjdk-devel wget sudo     procps-ng hostname openssh-server openssh-clients sshpass &&     yum clean all
+#16 CACHED
+
+#17 [master-namenode  9/24] RUN echo 'hadoopuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+#17 CACHED
+
+#18 [master-namenode 22/24] COPY entrypoint-master.sh /usr/local/bin/entrypoint.sh
+#18 CACHED
+
+#19 [master-namenode 19/24] COPY hadoop/log4j.properties /usr/local/hadoop/etc/hadoop/log4j.properties
+#19 CACHED
+
+#20 [master-namenode  7/24] RUN wget https://jdbc.postgresql.org/download/postgresql-42.3.1.jar -O /usr/local/spark/jars/postgresql-42.3.1.jar
+#20 CACHED
+
+#21 [master-namenode 17/24] COPY hadoop/yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
+#21 CACHED
+
+#22 [master-namenode  3/24] RUN wget https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz &&     tar -xvzf scala-2.11.8.tgz &&     mv scala-2.11.8 /usr/local/scala &&     ln -s /usr/local/scala/bin/scala /usr/local/bin/scala &&     ln -s /usr/local/scala/bin/scalac /usr/local/bin/scalac &&     rm scala-2.11.8.tgz
+#22 CACHED
+
+#23 [master-namenode  8/24] RUN useradd -ms /bin/bash hadoopuser &&     echo "hadoopuser:passer" | chpasswd && usermod -aG wheel hadoopuser &&     chown -R hadoopuser:hadoopuser /usr/local/hadoop /usr/local/spark &&     sed -i 's/^# %wheel/%wheel/' /etc/sudoers
+#23 CACHED
+
+#24 [master-namenode 11/24] RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+#24 CACHED
+
+#25 [master-namenode 14/24] RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+#25 CACHED
+
+#26 [master-namenode 10/24] RUN mkdir /var/run/sshd && mkdir -p /home/hadoopuser/.ssh/ &&     ssh-keygen -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' &&     ssh-keygen -t ecdsa -b 521 -f /etc/ssh/ssh_host_ecdsa_key -N '' &&     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N '' &&     ssh-keygen -t rsa -N "" -f /home/hadoopuser/.ssh/id_rsa &&     cat /home/hadoopuser/.ssh/id_rsa.pub >> /home/hadoopuser/.ssh/authorized_keys &&     chmod 600 /home/hadoopuser/.ssh/authorized_keys &&     chown -R hadoopuser:hadoopuser /home/hadoopuser/.ssh
+#26 CACHED
+
+#27 [master-namenode 13/24] WORKDIR /app
+#27 CACHED
+
+#28 [master-namenode  4/24] RUN wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz &&     tar -xvzf hadoop-3.3.6.tar.gz &&     mv hadoop-3.3.6 /usr/local/hadoop &&     rm hadoop-3.3.6.tar.gz
+#28 CACHED
+
+#29 [master-namenode 12/24] RUN echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk" >> /home/hadoopuser/.bashrc &&     echo "export HADOOP_HOME=/usr/local/hadoop" >> /home/hadoopuser/.bashrc &&     echo "export SPARK_HOME=/usr/local/spark" >> /home/hadoopuser/.bashrc &&     echo "export SBT_HOME=/usr/local/sbt" >> /home/hadoopuser/.bashrc &&     echo "export SCALA_HOME=/usr/local/scala" >> /home/hadoopuser/.bashrc &&     echo "export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop" >> /home/hadoopuser/.bashrc &&     echo 'export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$SBT_HOME/bin:$SCALA_HOME/bin:$JAVA_HOME/bin' >> /home/hadoopuser/.bashrc
+#29 CACHED
+
+#30 [master-namenode  5/24] RUN wget https://archive.apache.org/dist/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz &&     tar -xvzf spark-2.4.7-bin-hadoop2.7.tgz &&     mv spark-2.4.7-bin-hadoop2.7 /usr/local/spark &&     rm spark-2.4.7-bin-hadoop2.7.tgz
+#30 CACHED
+
+#31 [master-namenode 18/24] COPY hadoop/mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
+#31 CACHED
+
+#32 [master-namenode 16/24] COPY hadoop/hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+#32 CACHED
+
+#33 [master-namenode  6/24] RUN wget https://github.com/sbt/sbt/releases/download/v1.8.3/sbt-1.8.3.tgz &&     tar -xvzf sbt-1.8.3.tgz &&     mv sbt /usr/local/sbt &&     rm sbt-1.8.3.tgz
+#33 CACHED
+
+#34 [master-namenode 23/24] RUN chmod +x /usr/local/bin/entrypoint.sh
+#34 CACHED
+
+#35 [master-namenode 15/24] COPY hadoop/core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
+#35 CACHED
+
+#36 [master-namenode 24/24] RUN chmod 600 /etc/ssh/sshd_config
+#36 CACHED
+
+#37 [postgres] exporting to image
+#37 exporting layers done
+#37 writing image sha256:e941e94519004159ec11a6c40abb512b390105a35da4532e5352ab365ac523c1 done
+#37 naming to docker.io/library/sbt-project-postgres done
+#37 DONE 0.0s
+
+#38 [master-namenode] exporting to image
+#38 exporting layers done
+#38 writing image sha256:04a0152a7562a4d84fc110c5ad86a01a9070db1c8de8302fcd0a1de0ac00d829 done
+#38 naming to docker.io/library/sbt-project-master-namenode 0.0s done
+#38 DONE 0.1s
+
+#39 [worker-datanode1 internal] load build definition from Dockerfile-worker
+#39 transferring dockerfile: 3.90kB done
+#39 DONE 0.0s
+
+#40 [worker-datanode2 internal] load build definition from Dockerfile-worker
+#40 transferring dockerfile: 3.90kB done
+#40 DONE 0.0s
+
+#3 [worker-datanode2 internal] load metadata for docker.io/redhat/ubi8:8.10
+#3 DONE 3.2s
+
+#41 [worker-datanode2 internal] load .dockerignore
+#41 transferring context: 2B done
+#41 DONE 0.0s
+
+#42 [worker-datanode1 internal] load .dockerignore
+#42 transferring context: 2B done
+#42 DONE 0.0s
+
+#8 [worker-datanode2  1/22] FROM docker.io/redhat/ubi8:8.10@sha256:d5e2d1ddf34b573673581940f1341c7b3301ff8efde28f17100b31a3df7d94b6
+#8 DONE 0.0s
+
+#43 [worker-datanode2 internal] load build context
+#43 transferring context: 1.26kB done
+#43 DONE 0.0s
+
+#44 [worker-datanode1 internal] load build context
+#44 transferring context: 4.37kB done
+#44 DONE 0.0s
+
+#45 [worker-datanode2  4/22] RUN wget https://archive.apache.org/dist/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz &&     tar -xvzf spark-2.4.7-bin-hadoop2.7.tgz &&     mv spark-2.4.7-bin-hadoop2.7 /usr/local/spark &&     rm spark-2.4.7-bin-hadoop2.7.tgz
+#45 CACHED
+
+#46 [worker-datanode2 12/22] COPY hadoop/mapred-site.xml /usr/local/hadoop/etc/hadoop/mapred-site.xml
+#46 CACHED
+
+#47 [worker-datanode2 14/22] COPY spark/spark-defaults.conf /usr/local/spark/conf/spark-defaults.conf
+#47 CACHED
+
+#48 [worker-datanode2  5/22] RUN wget https://jdbc.postgresql.org/download/postgresql-42.3.1.jar -O /usr/local/spark/jars/postgresql-42.3.1.jar
+#48 CACHED
+
+#49 [worker-datanode2  9/22] COPY hadoop/core-site.xml /usr/local/hadoop/etc/hadoop/core-site.xml
+#49 CACHED
+
+#50 [worker-datanode2  8/22] RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+#50 CACHED
+
+#51 [worker-datanode2  7/22] RUN echo 'hadoopuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+#51 CACHED
+
+#52 [worker-datanode2  6/22] RUN useradd -ms /bin/bash hadoopuser &&     echo "hadoopuser:passer" | chpasswd && usermod -aG wheel hadoopuser &&     chown -R hadoopuser:hadoopuser /usr/local/hadoop /usr/local/spark &&     sed -i 's/^# %wheel/%wheel/' /etc/sudoers
+#52 CACHED
+
+#53 [worker-datanode2 16/22] RUN mkdir -p /var/hdfs/name && chown -R hadoopuser:hadoopuser /var/hdfs/name && chmod -R 755 /var/hdfs/name &&     mkdir -p /var/hdfs/data && chown -R hadoopuser:hadoopuser /var/hdfs/data && chmod -R 755 /var/hdfs/data
+#53 CACHED
+
+#54 [worker-datanode2 11/22] COPY hadoop/yarn-site.xml /usr/local/hadoop/etc/hadoop/yarn-site.xml
+#54 CACHED
+
+#55 [worker-datanode2 15/22] COPY spark/spark-env.sh /usr/local/spark/conf/spark-env.sh
+#55 CACHED
+
+#56 [worker-datanode2 18/22] RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config &&     echo 'hadoopuser:passer' | chpasswd
+#56 CACHED
+
+#57 [worker-datanode2 21/22] RUN chmod +x /usr/local/bin/entrypoint.sh
+#57 CACHED
+
+#58 [worker-datanode2  2/22] RUN yum install -y java-1.8.0-openjdk-devel wget sudo     procps-ng hostname openssh-server openssh-clients sshpass &&     yum clean all
+#58 CACHED
+
+#59 [worker-datanode2  3/22] RUN wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz &&     tar -xvzf hadoop-3.3.6.tar.gz &&     mv hadoop-3.3.6 /usr/local/hadoop &&     rm hadoop-3.3.6.tar.gz
+#59 CACHED
+
+#60 [worker-datanode2 19/22] RUN echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk" >> /home/hadoopuser/.bashrc &&     echo "export HADOOP_HOME=/usr/local/hadoop" >> /home/hadoopuser/.bashrc &&     echo "export SPARK_HOME=/usr/local/spark" >> /home/hadoopuser/.bashrc &&     echo "export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop" >> /home/hadoopuser/.bashrc &&     echo 'export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$JAVA_HOME/bin' >> /home/hadoopuser/.bashrc
+#60 CACHED
+
+#61 [worker-datanode2 13/22] COPY hadoop/log4j.properties /usr/local/hadoop/etc/hadoop/log4j.properties
+#61 CACHED
+
+#62 [worker-datanode2 10/22] COPY hadoop/hdfs-site.xml /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+#62 CACHED
+
+#63 [worker-datanode2 20/22] COPY entrypoint-worker.sh /usr/local/bin/entrypoint.sh
+#63 CACHED
+
+#64 [worker-datanode2 17/22] RUN mkdir /var/run/sshd && mkdir -p /home/hadoopuser/.ssh &&     ssh-keygen -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' &&     ssh-keygen -t ecdsa -b 521 -f /etc/ssh/ssh_host_ecdsa_key -N '' &&     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N '' &&     ssh-keygen -t rsa -N "" -f /home/hadoopuser/.ssh/id_rsa &&     cat /home/hadoopuser/.ssh/id_rsa.pub >> /home/hadoopuser/.ssh/authorized_keys &&     chmod 600 /home/hadoopuser/.ssh/authorized_keys &&     chown -R hadoopuser:hadoopuser /home/hadoopuser/.ssh
+#64 CACHED
+
+#65 [worker-datanode2 22/22] RUN chmod 600 /etc/ssh/sshd_config
+#65 CACHED
+
+#66 [worker-datanode2] exporting to image
+#66 exporting layers done
+#66 writing image sha256:5a61d4e9e83fa4fa5ab7978f5c8a029e2d68c99b51cf61e08cb102c705f5e996 done
+#66 naming to docker.io/library/sbt-project-worker-datanode2 done
+#66 DONE 0.0s
+
+#67 [worker-datanode1] exporting to image
+#67 exporting layers done
+#67 writing image sha256:458f0078010b107f7018e5505b80708061633b496b4224cbbdc915e1f99cf831 done
+#67 naming to docker.io/library/sbt-project-worker-datanode1 done
+#67 DONE 0.0s
+ Network sbt-project_hadoop  Creating
+ Network sbt-project_hadoop  Created
+ Volume "sbt-project_hadoop-namenode"  Creating
+ Volume "sbt-project_hadoop-namenode"  Created
+ Volume "sbt-project_hadoop-datanode1"  Creating
+ Volume "sbt-project_hadoop-datanode1"  Created
+ Volume "sbt-project_hadoop-datanode2"  Creating
+ Volume "sbt-project_hadoop-datanode2"  Created
+ Volume "sbt-project_postgres-data"  Creating
+ Volume "sbt-project_postgres-data"  Created
+ Container postgres  Creating
+ Container master-namenode  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Connecting to the container...
+Stopping Docker containers...
+time="2024-08-26T09:05:17Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+ Container postgres  Stopping
+ Container worker-datanode1  Stopping
+ Container worker-datanode2  Stopping
+ Container postgres  Stopped
+ Container postgres  Removing
+ Container postgres  Removed
+ Container worker-datanode1  Stopped
+ Container worker-datanode1  Removing
+ Container worker-datanode1  Removed
+ Container worker-datanode2  Stopped
+ Container worker-datanode2  Removing
+ Container worker-datanode2  Removed
+ Container master-namenode  Stopping
+ Container master-namenode  Stopped
+ Container master-namenode  Removing
+ Container master-namenode  Removed
+ Network sbt-project_hadoop  Removing
+ Network sbt-project_hadoop  Removed
+Docker containers stopped successfully.
+Resetting the cluster to default ...
+time="2024-08-26T09:09:09Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+ Volume sbt-project_hadoop-datanode1  Removing
+ Volume sbt-project_hadoop-namenode  Removing
+ Volume sbt-project_postgres-data  Removing
+ Volume sbt-project_hadoop-datanode2  Removing
+ Volume sbt-project_hadoop-datanode1  Removed
+ Volume sbt-project_hadoop-datanode2  Removed
+ Volume sbt-project_postgres-data  Removed
+ Volume sbt-project_hadoop-namenode  Removed
+Reset successfull.
+Starting Docker containers...
+time="2024-08-26T09:09:49Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+ Network sbt-project_hadoop  Creating
+ Network sbt-project_hadoop  Created
+ Volume "sbt-project_hadoop-datanode2"  Creating
+ Volume "sbt-project_hadoop-datanode2"  Created
+ Volume "sbt-project_postgres-data"  Creating
+ Volume "sbt-project_postgres-data"  Created
+ Volume "sbt-project_hadoop-namenode"  Creating
+ Volume "sbt-project_hadoop-namenode"  Created
+ Volume "sbt-project_hadoop-datanode1"  Creating
+ Volume "sbt-project_hadoop-datanode1"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container postgres  Created
+ Container master-namenode  Created
+ Container worker-datanode2  Creating
+ Container worker-datanode1  Creating
+ Container worker-datanode1  Created
+ Container worker-datanode2  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container postgres  Started
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Connecting to the container...
+Resetting the cluster to default ...
+time="2024-08-26T09:17:02Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+ Container postgres  Stopping
+ Container worker-datanode1  Stopping
+ Container worker-datanode2  Stopping
+ Container postgres  Stopped
+ Container postgres  Removing
+ Container postgres  Removed
+ Container worker-datanode2  Stopped
+ Container worker-datanode2  Removing
+ Container worker-datanode2  Removed
+ Container worker-datanode1  Stopped
+ Container worker-datanode1  Removing
+ Container worker-datanode1  Removed
+ Container master-namenode  Stopping
+ Container master-namenode  Stopped
+ Container master-namenode  Removing
+ Container master-namenode  Removed
+ Volume sbt-project_hadoop-datanode2  Removing
+ Volume sbt-project_hadoop-namenode  Removing
+ Volume sbt-project_postgres-data  Removing
+ Volume sbt-project_hadoop-datanode1  Removing
+ Network sbt-project_hadoop  Removing
+ Volume sbt-project_hadoop-datanode2  Removed
+ Volume sbt-project_hadoop-datanode1  Removed
+ Volume sbt-project_hadoop-namenode  Removed
+ Volume sbt-project_postgres-data  Removed
+ Network sbt-project_hadoop  Removed
+Reset successfull.
+Starting Docker containers...
+time="2024-08-26T09:17:39Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+ Network sbt-project_hadoop  Creating
+ Network sbt-project_hadoop  Created
+ Volume "sbt-project_hadoop-datanode1"  Creating
+ Volume "sbt-project_hadoop-datanode1"  Created
+ Volume "sbt-project_hadoop-datanode2"  Creating
+ Volume "sbt-project_hadoop-datanode2"  Created
+ Volume "sbt-project_postgres-data"  Creating
+ Volume "sbt-project_postgres-data"  Created
+ Volume "sbt-project_hadoop-namenode"  Creating
+ Volume "sbt-project_hadoop-namenode"  Created
+ Container master-namenode  Creating
+ Container postgres  Creating
+ Container master-namenode  Created
+ Container worker-datanode1  Creating
+ Container worker-datanode2  Creating
+ Container postgres  Created
+ Container worker-datanode2  Created
+ Container worker-datanode1  Created
+ Container postgres  Starting
+ Container master-namenode  Starting
+ Container master-namenode  Started
+ Container worker-datanode2  Starting
+ Container worker-datanode1  Starting
+ Container postgres  Started
+ Container worker-datanode1  Started
+ Container worker-datanode2  Started
+Waiting for containers to start...
+Docker containers started successfully.
+Copying HDFS operations script to container...
+HDFS operations script copied successfully.
+Running HDFS operations menu inside the container...
+Connecting to the container...
+Stopping Docker containers...
+time="2024-08-26T09:21:24Z" level=warning msg="/home/barryma/Workspace/tasks/sbt_task_remote/Presentations/sbt-project/docker-compose.yml: `version` is obsolete"
+ Container postgres  Stopping
+ Container worker-datanode2  Stopping
+ Container worker-datanode1  Stopping
+ Container postgres  Stopped
+ Container postgres  Removing
+ Container postgres  Removed
+ Container worker-datanode2  Stopped
+ Container worker-datanode2  Removing
+ Container worker-datanode2  Removed
+ Container worker-datanode1  Stopped
+ Container worker-datanode1  Removing
+ Container worker-datanode1  Removed
+ Container master-namenode  Stopping
+ Container master-namenode  Stopped
+ Container master-namenode  Removing
+ Container master-namenode  Removed
+ Network sbt-project_hadoop  Removing
+ Network sbt-project_hadoop  Removed
+Docker containers stopped successfully.
