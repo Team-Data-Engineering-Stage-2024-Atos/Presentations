@@ -161,6 +161,46 @@ Vous pouvez ajouter un diagramme illustrant la structure des fichiers de configu
 
 ![Diagramme de Configuration](assets/docs/img/configuration_diagram.png)
 
+## Gestion du Cluster avec les Scripts Bash
+
+`main.sh`
+
+Ce script Bash gère un cluster Hadoop/Spark Dockerisé. Il permet de démarrer, arrêter, redémarrer, et mettre à l'échelle le cluster, ainsi que de se connecter au conteneur principal et d'exécuter des opérations HDFS.
+
+- **Démarrage du Cluster** : Démarre tous les conteneurs Docker nécessaires.
+- **Arrêt du Cluster** : Arrête les conteneurs Docker en cours.
+- **Redémarrage du Cluster** : Arrête puis redémarre les conteneurs Docker.
+- **Mise à l'Échelle** : Ajuste le nombre de nœuds workers dans le cluster.
+- **Connexion au Conteneur** : Ouvre une session interactive dans le conteneur master-namenode.
+- **Exécution des Opérations HDFS** : Copie et exécute un script HDFS dans le conteneur master-namenode.
+- **Réinitialisation du Cluster** : Réinitialise le cluster à son état par défaut en supprimant les volumes Docker.
+
+Le script fonctionne dans une boucle infinie, affichant un menu principal pour la gestion du cluster. L'utilisateur peut sélectionner une option pour exécuter une tâche spécifique.
+
+Exécuter le script avec :
+
+```bash
+./hadoop_spark_cluster_manager.sh
+```
+
+`hdfs_operations.sh`
+
+Ce script gère les opérations HDFS pour un environnement Hadoop. Il permet de télécharger des datasets, nettoyer le répertoire de datasets, configurer des répertoires Spark, et télécharger les JARs Spark dans HDFS.
+
+- **Téléchargement des Datasets** : Charge les fichiers du répertoire `/datasets` dans le répertoire HDFS spécifié.
+- **Nettoyage des Datasets** : Supprime le répertoire de datasets dans HDFS.
+- **Configuration des Répertoires Spark** : Crée et configure les répertoires nécessaires pour Spark dans HDFS.
+- **Téléchargement des JARs Spark** : Télécharge tous les JARs Spark dans HDFS.
+- **Configuration Initiale** : Exécute toutes les étapes de configuration nécessaires pour préparer HDFS pour Spark.
+
+Le script peut être exécuté directement ou via le menu pour une gestion interactive.
+
+Exécuter le script avec :
+
+```bash
+./hdfs_operations.sh menu
+```
+
 ## Construction de l'Application SBT
 
 L'application SBT est définie dans le fichier `build.sbt`. Pour compiler et assembler l'application, exécutez la commande suivante :
