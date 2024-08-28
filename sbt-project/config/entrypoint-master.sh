@@ -53,6 +53,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "Setting up the cluster, please wait..." && sleep 30
 
 hdfs dfs -mkdir -p /user/hadoopuser/spark-jars
 hdfs dfs -mkdir -p /user/hadoopuser/spark-logs

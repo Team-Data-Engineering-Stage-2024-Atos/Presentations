@@ -19,6 +19,9 @@ services:
       - hadoop-namenode:/var/hdfs/name
       - ./app:/app
       - ./datasets:/datasets
+      - ./sparkDataWarehouse:/sparkDataWarehouse
+      # - ./dhw1:/dhw1
+      # - ./dhw2:/dhw2
 
   worker-datanode1:
     build:
@@ -67,6 +70,29 @@ services:
       - hadoop
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
+  
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    networks:
+      - hadoop
+
+  # ADD PG ADMIN
+
+  # ADD MONITORING TOOLS
+
+  # DOCKER SWARM SCALE THE WORKER
+
+  # OPTIMIZE THE CONF AND INCREASE THE ALLOCATION
+
+  # TRY TO START CLEAN, WITH COMPONENT RUNNING ON DIFFERENT NODES
 
 networks:
   hadoop:

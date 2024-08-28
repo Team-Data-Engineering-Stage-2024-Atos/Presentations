@@ -1,3 +1,6 @@
+-- Initialize the PostgreSQL database for Spark
+
+-- Create the sparkdb database if it doesn't exist
 DO
 $do$
 BEGIN
@@ -10,7 +13,19 @@ BEGIN
 END
 $do$;
 
--- Create the user and grant privileges
+-- Create a schema named "spark_catalog" if it doesn't exist
+DO
+$do$
+BEGIN
+   IF NOT EXISTS (
+      SELECT 1 FROM information_schema.schemata WHERE schema_name = 'spark_catalog'
+   ) THEN
+      CREATE SCHEMA spark_catalog;
+   END IF;
+END
+$do$;
+
+-- Create the sparkuser with password and grant privileges
 DO
 $do$
 BEGIN
@@ -18,9 +33,13 @@ BEGIN
       SELECT FROM pg_roles
       WHERE rolname = 'sparkuser'
    ) THEN
-      EXECUTE 'CREATE USER sparkuser WITH PASSWORD ''passer''';
+      CREATE USER sparkuser WITH PASSWORD 'passer';
    END IF;
-   
-   EXECUTE 'GRANT ALL PRIVILEGES ON DATABASE sparkdb TO sparkuser';
+
+   GRANT ALL PRIVILEGES ON DATABASE sparkdb TO sparkuser;
+   GRANT USAGE ON SCHEMA spark_catalog TO sparkuser;
+   GRANT CREATE ON SCHEMA spark_catalog TO sparkuser;
+   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA spark_catalog TO sparkuser;
+   ALTER DEFAULT PRIVILEGES IN SCHEMA spark_catalog GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO sparkuser;
 END
 $do$;
