@@ -57,8 +57,11 @@ echo "Setting up the cluster, please wait..." && sleep 30
 
 hdfs dfs -mkdir -p /user/hadoopuser/spark-jars
 hdfs dfs -mkdir -p /user/hadoopuser/spark-logs
+hdfs dfs -mkdir -p /user/hadoopuser/sparkstages
+
 hdfs dfs -chmod 775 /user/hadoopuser/spark-logs
 hdfs dfs -chmod 775 /user/hadoopuser/spark-jars
+hdfs dfs -chmod 775 /user/hadoopuser/sparkstages
 
 hdfs dfs -put $SPARK_HOME/jars/*.jar /user/hadoopuser/spark-jars/
 

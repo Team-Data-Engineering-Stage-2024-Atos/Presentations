@@ -1,0 +1,30 @@
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://master-namenode:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/hadoop/tmp</value>
+    </property>
+    <property>
+        <name>io.file.buffer.size</name>
+        <value>131072</value> <!-- 128KB buffer for faster file read/write -->
+    </property>
+    <property>
+        <name>io.sort.factor</name>
+        <value>100</value> <!-- Number of files merged at once during sort -->
+    </property>
+    <property>
+        <name>io.sort.mb</name>
+        <value>512</value> <!-- Memory buffer for sorting files -->
+    </property>
+    <property>
+        <name>ipc.server.max.connections</name>
+        <value>2048</value> <!-- Max IPC connections -->
+    </property>
+    <property>
+        <name>ipc.client.connect.max.retries</name>
+        <value>50</value> <!-- Max retries for IPC client -->
+    </property>
+</configuration>

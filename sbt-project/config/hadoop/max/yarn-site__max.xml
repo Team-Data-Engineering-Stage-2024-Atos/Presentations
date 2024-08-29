@@ -1,0 +1,50 @@
+<configuration>
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>master-namenode</value>
+    </property>
+    <property>
+        <name>yarn.nodemanager.resource.memory-mb</name>
+        <value>16384</value> <!-- Increase based on available node memory -->
+    </property>
+    <property>
+        <name>yarn.nodemanager.resource.cpu-vcores</name>
+        <value>8</value> <!-- Increase based on available node cores -->
+    </property>
+    <property>
+        <name>yarn.scheduler.maximum-allocation-mb</name>
+        <value>16384</value> <!-- Max memory allocation for containers -->
+    </property>
+    <property>
+        <name>yarn.scheduler.maximum-allocation-vcores</name>
+        <value>8</value> <!-- Max vcores allocation for containers -->
+    </property>
+    <property>
+        <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+        <value>0.5</value> <!-- Max resource for ApplicationMaster -->
+    </property>
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value> <!-- Disable virtual memory checks -->
+    </property>
+    <property>
+        <name>yarn.nodemanager.vmem-pmem-ratio</name>
+        <value>4.0</value> <!-- Adjust virtual memory to physical memory ratio -->
+    </property>
+    <property>
+        <name>yarn.log-aggregation-enable</name>
+        <value>true</value> <!-- Enable log aggregation -->
+    </property>
+    <property>
+        <name>yarn.nodemanager.log.retain-seconds</name>
+        <value>2592000</value> <!-- Retain logs for 30 days -->
+    </property>
+    <property>
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>2592000</value>
+    </property>
+    <property>
+        <name>yarn.log-aggregation.retain-check-interval-seconds</name>
+        <value>3600</value> <!-- Check log retention every hour -->
+    </property>
+</configuration>

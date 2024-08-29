@@ -1,0 +1,141 @@
+version: '3.8'
+
+services:
+  master-namenode:
+    image: barryma22/sbt-project:master
+    container_name: master-namenode
+    hostname: master-namenode
+    ports:
+      - "9870:9870"
+      - "8088:8088"
+      - "7077:7077"
+      - "8080:8080"
+      - "18080:18080"
+    networks:
+      - hadoop
+    volumes:
+      - hadoop-namenode:/var/hdfs/name
+      - ./app:/app
+      - ./app2:/app2
+      - ./datasets:/datasets
+      - ./sparkDataWarehouse:/sparkDataWarehouse
+      - ./dhw1:/dhw1
+      - ./dhw2:/dhw2
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+
+  worker-datanode1:
+    image: barryma22/sbt-project:worker1
+    container_name: worker-datanode1
+    hostname: worker-node1
+    ports:
+      - "8081:8081"
+      - "9864:9864"
+    networks:
+      - hadoop
+    volumes:
+      - hadoop-datanode1:/var/hdfs/data
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == worker]
+
+  worker-datanode2:
+    image: barryma22/sbt-project:worker2
+    container_name: worker-datanode2
+    hostname: worker-node2
+    ports:
+      - "8082:8081"
+      - "9865:9864"
+    networks:
+      - hadoop
+    volumes:
+      - hadoop-datanode2:/var/hdfs/data
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == worker]
+
+  postgres:
+    image: postgres:15.7
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    networks:
+      - hadoop
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    deploy:
+      replicas: 1
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    networks:
+      - hadoop
+    deploy:
+      replicas: 1
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - hadoop
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "3000:3000"
+    networks:
+      - hadoop
+    depends_on:
+      - prometheus
+    deploy:
+      replicas: 1
+
+  node_exporter:
+    image: prom/node-exporter
+    container_name: node_exporter
+    ports:
+      - "9100:9100"
+    networks:
+      - hadoop
+    deploy:
+      mode: global
+
+networks:
+  hadoop:
+    driver: overlay
+    attachable: true
+    driver_opts:
+      encrypted: "true"
+
+volumes:
+  hadoop-namenode:
+  hadoop-datanode1:
+  hadoop-datanode2:
+  postgres-data:

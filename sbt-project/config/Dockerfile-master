@@ -93,6 +93,7 @@ COPY hadoop/log4j.properties $HADOOP_HOME/etc/hadoop/log4j.properties
 
 COPY spark/spark-defaults.conf $SPARK_HOME/conf/spark-defaults.conf
 COPY spark/spark-env.sh $SPARK_HOME/conf/spark-env.sh
+COPY spark/log4j.properties $SPARK_HOME/conf/log4j.properties
 
 COPY entrypoint-master.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh

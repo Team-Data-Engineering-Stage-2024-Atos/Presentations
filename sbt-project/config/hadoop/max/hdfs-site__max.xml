@@ -1,0 +1,30 @@
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///var/hdfs/name</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///var/hdfs/data</value>
+    </property>
+    <property>
+        <name>dfs.block.size</name>
+        <value>268435456</value> <!-- 256MB block size -->
+    </property>
+    <property>
+        <name>dfs.namenode.handler.count</name>
+        <value>100</value> <!-- Number of handler threads for NameNode -->
+    </property>
+    <property>
+        <name>dfs.datanode.handler.count</name>
+        <value>20</value> <!-- Number of handler threads for DataNode -->
+    </property>
+    <property>
+        <name>dfs.datanode.max.transfer.threads</name>
+        <value>4096</value> <!-- Max threads for DataNode block transfers -->
+    </property>
+</configuration>

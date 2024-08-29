@@ -1,0 +1,34 @@
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://master-namenode:9000</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/hadoop/tmp</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address</name>
+        <value>master-namenode:9000</value>
+    </property>
+    <property>
+        <name>io.file.buffer.size</name>
+        <value>131072</value> <!-- Keep 128KB buffer for fast file read/write -->
+    </property>
+    <property>
+        <name>io.sort.factor</name>
+        <value>50</value> <!-- Reduce the number of files merged at once during sort -->
+    </property>
+    <property>
+        <name>io.sort.mb</name>
+        <value>256</value> <!-- Reduce memory buffer for sorting files -->
+    </property>
+    <property>
+        <name>ipc.server.max.connections</name>
+        <value>1024</value> <!-- Adjust max IPC connections for WSL2 -->
+    </property>
+    <property>
+        <name>ipc.client.connect.max.retries</name>
+        <value>50</value> <!-- Keep max retries for IPC client -->
+    </property>
+</configuration>

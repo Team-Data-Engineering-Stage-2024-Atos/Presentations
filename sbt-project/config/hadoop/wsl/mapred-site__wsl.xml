@@ -1,0 +1,34 @@
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>master-namenode:10020</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.webapp.address</name>
+        <value>master-namenode:19888</value>
+    </property>
+    <property>
+        <name>mapreduce.map.memory.mb</name>
+        <value>2048</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.memory.mb</name>
+        <value>4096</value>
+    </property>
+    <property>
+        <name>mapreduce.task.io.sort.mb</name>
+        <value>512</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.shuffle.parallelcopies</name>
+        <value>25</value>
+    </property>
+    <property>
+        <name>mapreduce.task.io.sort.factor</name>
+        <value>50</value>
+    </property>
+</configuration>
