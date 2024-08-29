@@ -3,9 +3,13 @@ app/target/
 app/project/project
 app/project/target
 app/logs/
+app2/project/project
+app2/project/target
+app2/logs/
 sparkDataWarehouse/
 misc.md
 test1.scala
 test2.scala
 dhw1/
 dhw2/
+.bsp/
