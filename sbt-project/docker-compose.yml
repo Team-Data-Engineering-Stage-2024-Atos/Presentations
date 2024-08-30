@@ -5,6 +5,7 @@ services:
     build:  
       context: ./config/
       dockerfile: Dockerfile-master
+    # image: barryma22/sbt-project:master
     container_name: master-namenode
     hostname: master-namenode
     ports:
@@ -27,6 +28,7 @@ services:
     build:
       context: ./config/
       dockerfile: Dockerfile-worker
+    # image: barryma22/sbt-project:slave1
     container_name: worker-datanode1
     hostname: worker-node1
     depends_on:
@@ -43,6 +45,7 @@ services:
     build: 
       context: ./config/
       dockerfile: Dockerfile-worker
+    # image: barryma22/sbt-project:slave1
     container_name: worker-datanode2
     hostname: worker-node2
     depends_on:
@@ -59,6 +62,7 @@ services:
     build:
       context: ./config/
       dockerfile: Dockerfile-postgres
+    # image: barryma22/sbt-project:postgres
     container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
