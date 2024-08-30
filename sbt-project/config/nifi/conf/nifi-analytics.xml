@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<analyticsConfiguration>
+
+    <predictiveAnalytics>
+        <backpressurePrediction>
+            <enable>false</enable>
+        </backpressurePrediction>
+    </predictiveAnalytics>
+
+</analyticsConfiguration>

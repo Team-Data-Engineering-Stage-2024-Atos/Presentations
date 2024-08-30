@@ -33,6 +33,20 @@ RUN wget https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_
     mv sbt /usr/local/sbt && \
     rm sbt-${SBT_VERSION}.tgz
 
+
+RUN yum install unzip -y && yum clean all
+
+RUN wget https://dlcdn.apache.org/nifi/1.27.0/nifi-1.27.0-bin.zip && \
+    unzip nifi-1.27.0-bin.zip && \
+    mv nifi-1.27.0 /usr/local/nifi-1.27.0 && \
+    rm nifi-1.27.0-bin.zip
+
+
+RUN wget https://dlcdn.apache.org/nifi/1.27.0/nifi-toolkit-1.27.0-bin.zip && \
+    unzip nifi-toolkit-1.27.0-bin.zip  && \
+    mv nifi-toolkit-1.27.0 /usr/local/nifi-toolkit-1.27.0 && \
+    rm nifi-toolkit-1.27.0-bin.zip
+
 # Environment
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk \
     HADOOP_HOME=/usr/local/hadoop \
@@ -40,10 +54,13 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk \
     SBT_HOME=/usr/local/sbt \
     SCALA_HOME=/usr/local/scala \
     HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop \
+    NIFI_HOME=/usr/local/nifi-1.27.0 \
     #YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop \
-    PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$SBT_HOME/bin:$SCALA_HOME/bin:$JAVA_HOME/bin
+    PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$SBT_HOME/bin:$SCALA_HOME/bin:$JAVA_HOME/bin:$NIFI_HOME/bin
 
 RUN wget https://jdbc.postgresql.org/download/postgresql-42.3.1.jar -O $SPARK_HOME/jars/postgresql-42.3.1.jar 
+RUN wget https://repo1.maven.org/maven2/org/apache/nifi/nifi-spark-receiver/1.27.0/nifi-spark-receiver-1.27.0.jar -O $SPARK_HOME/jars/nifi-spark-receiver-1.27.0.jar
+RUN wget https://repo1.maven.org/maven2/org/apache/nifi/nifi-site-to-site-client/1.27.0/nifi-site-to-site-client-1.27.0.jar -O $SPARK_HOME/jars/nifi-site-to-site-client-1.27.0.jar
 
 RUN useradd -ms /bin/bash hadoopuser && \
     echo "hadoopuser:passer" | chpasswd && usermod -aG wheel hadoopuser && \
@@ -76,11 +93,11 @@ RUN echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk" >> /home/hadoopuser/
     echo "export SBT_HOME=/usr/local/sbt" >> /home/hadoopuser/.bashrc && \
     echo "export SCALA_HOME=/usr/local/scala" >> /home/hadoopuser/.bashrc && \
     echo "export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop" >> /home/hadoopuser/.bashrc && \
+    echo "export NIFI_HOME=/usr/local/nifi-1.27.0/" >> /home/hadoopuser/.bashrc && \
     #echo "export YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop" >> /home/hadoopuser/.bashrc && \
-    echo 'export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$SBT_HOME/bin:$SCALA_HOME/bin:$JAVA_HOME/bin' >> /home/hadoopuser/.bashrc
+    echo 'export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:$SPARK_HOME/sbin:$SBT_HOME/bin:$SCALA_HOME/bin:$JAVA_HOME/bin:$NIFI_HOME/bin' >> /home/hadoopuser/.bashrc
 
 # Finalization
-EXPOSE 22 9870 8088 7077 8080 18080
 
 WORKDIR /app
 
@@ -95,11 +112,16 @@ COPY spark/spark-defaults.conf $SPARK_HOME/conf/spark-defaults.conf
 COPY spark/spark-env.sh $SPARK_HOME/conf/spark-env.sh
 COPY spark/log4j.properties $SPARK_HOME/conf/log4j.properties
 
+COPY nifi/conf/* $NIFI_HOME/conf/
+
 COPY entrypoint-master.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
+EXPOSE 22 9870 8088 7077 8080 18080 8090
+
 USER root
-RUN chmod 600 /etc/ssh/sshd_config
+RUN chmod 600 /etc/ssh/sshd_config && chown -R hadoopuser:hadoopuser /usr/local/nifi-1.27.0/ && chmod -R 755 /usr/local/nifi-1.27.0/
+
 
 USER hadoopuser
 

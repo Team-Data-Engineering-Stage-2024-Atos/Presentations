@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<stateManagement>
+
+    <local-provider>
+        <id>local-provider</id>
+        <class>org.apache.nifi.controller.state.providers.local.WriteAheadLocalStateProvider</class>
+        <property name="Directory">./state/local</property>
+        <property name="Always Sync">false</property>
+    </local-provider>
+
+    <cluster-provider>
+        <id>zk-provider</id>
+        <class>org.apache.nifi.controller.state.providers.zookeeper.ZooKeeperStateProvider</class>
+        <property name="Connect String">localhost:2181</property>
+        <property name="Root Node">/nifi-cluster</property>
+        <property name="Session Timeout">10 seconds</property>
+        <property name="Retry Wait">1 second</property>
+        <property name="Max Retry Attempts">5</property>
+    </cluster-provider>
+
+</stateManagement>

@@ -1,0 +1,34 @@
+# Core properties #
+
+nifi.flow.configuration.file=./conf/flow.xml.gz	
+nifi.flow.configuration.archive.enabled=true	
+nifi.flow.configuration.archive.dir=./conf/archive/	
+nifi.flow.configuration.archive.max.time=30 days	
+nifi.flow.configuration.archive.max.storage=500 MB	
+nifi.authorizer.configuration.file=./conf/authorizers.xml	
+nifi.login.identity.provider.configuration.file=./conf/login-identity-providers.xml	
+nifi.templates.directory=./conf/templates	
+nifi.nar.library.directory=./lib	
+nifi.nar.working.directory=./work/nar/	
+nifi.documentation.working.directory=./work/docs/components
+nifi.web.http.port=8090
+
+# State Management #
+
+nifi.state.management.configuration.file=./conf/state-management.xml	
+nifi.state.management.provider.local=local-provider
+nifi.state.management.provider.cluster=zk-provider	
+nifi.state.management.embedded.zookeeper.start=false
+nifi.state.management.embedded.zookeeper.properties=./conf/zookeeper.properties
+
+
+# FlowFile Repository #
+
+nifi.flowfile.repository.implementation=org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
+nifi.flowfile.repository.directory=./flowfile_repository
+
+
+# Site to Site properties
+nifi.remote.input.socket.host=
+nifi.remote.input.socket.port=8055
+nifi.remote.input.secure=false
