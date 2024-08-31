@@ -12,6 +12,8 @@ usage() {
   exit 1
 }
 
+batches=("dim_customers" "dim_products" "dim_dates" "fact_sales" "sales_mart" "customer_loyalty_mart" "product_performance_mart")
+
 deploy_mode="client"
 spark_opts=""
 parallel=false
@@ -64,11 +66,6 @@ fi
 log_dir="spark_logs_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$log_dir"
 
-batch1=("dim_customers" "dim_products")
-batch2=("dim_dates" "fact_sales")
-
-batches=("batch1" "batch2")
-
 retry_job() {
   local table_name=$1
   local log_file=$2
@@ -104,12 +101,11 @@ retry_job() {
 }
 
 process_batch() {
-  local batch=("$@")
   local running_jobs=0
 
   if [ "$parallel" = true ]; then
-    echo "Processing batch in parallel: ${batch[@]}"
-    for table_name in "${batch[@]}"; do
+    echo "Processing batch in parallel: ${batches[@]}"
+    for table_name in "${batches[@]}"; do
       log_file="$log_dir/spark_job_${table_name}.log"
       retry_job "$table_name" "$log_file" &
       running_jobs=$((running_jobs + 1))
@@ -121,22 +117,13 @@ process_batch() {
     done
     wait
   else
-    echo "Processing batch sequentially: ${batch[@]}"
-    for table_name in "${batch[@]}"; do
+    echo "Processing batch sequentially: ${batches[@]}"
+    for table_name in "${batches[@]}"; do
       log_file="$log_dir/spark_job_${table_name}.log"
       retry_job "$table_name" "$log_file"
     done
   fi
 }
-
-for batch_group in "${batches[@]}"; do
-  process_batch "${!batch_group}"
-
-  if [ ${#failed_jobs[@]} -ne 0 ]; then
-    echo "Stopping further batch processing due to failed jobs in batch $batch_group."
-    break
-  fi
-done
 
 generate_summary_report() {
   summary_file="$log_dir/summary_report_$(date +%Y%m%d_%H%M%S).log"
@@ -165,20 +152,20 @@ generate_summary_report() {
   echo "Summary report generated at $summary_file"
 }
 
+process_batch
 generate_summary_report
 
 if [ ${#failed_jobs[@]} -ne 0 ]; then
   exit 1
 else
+  read -p "Do you want to clean up the log files? [y/N]: " cleanup_choice
+  cleanup_choice=${cleanup_choice:-N}
+
+  if [[ "$cleanup_choice" =~ ^[Yy]$ ]]; then
+    rm -rf "$log_dir"
+    echo "Log files cleaned up."
+  else
+    echo "Log files retained in directory: $log_dir"
+  fi
   exit 0
-fi
-
-read -p "Do you want to clean up the log files? [y/N]: " cleanup_choice
-cleanup_choice=${cleanup_choice:-N}
-
-if [[ "$cleanup_choice" =~ ^[Yy]$ ]]; then
-  rm -rf "$log_dir"
-  echo "Log files cleaned up."
-else
-  echo "Log files retained in directory: $log_dir"
 fi
