@@ -1,0 +1,11 @@
+product_id,product_name,category,subcategory,brand,price
+1,Smartphone,Electronics,Mobile Phones,Samsung,699.99
+2,Laptop,Electronics,Computers,Apple,1299.99
+3,Headphones,Electronics,Audio,Bose,199.99
+4,Refrigerator,Home Appliances,Kitchen Appliances,LG,899.99
+5,Blender,Home Appliances,Kitchen Appliances,Oster,79.99
+6,Tablet,Electronics,Computers,Microsoft,499.99
+7,Smartwatch,Electronics,Wearables,Fossil,199.99
+8,Coffee Maker,Home Appliances,Kitchen Appliances,Keurig,129.99
+9,Television,Electronics,TVs,Sony,999.99
+10,Microwave,Home Appliances,Kitchen Appliances,Panasonic,149.99

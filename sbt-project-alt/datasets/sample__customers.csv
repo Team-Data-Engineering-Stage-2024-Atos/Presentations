@@ -1,0 +1,11 @@
+customer_id,first_name,last_name,email,gender,date_of_birth,city,state,country
+1,John,Doe,john.doe@example.com,M,1985-05-15,New York,NY,USA
+2,Jane,Smith,jane.smith@example.com,F,1990-07-22,Los Angeles,CA,USA
+3,Michael,Johnson,michael.johnson@example.com,M,1983-03-02,Chicago,IL,USA
+4,Emily,Davis,emily.davis@example.com,F,1992-11-08,Houston,TX,USA
+5,Jessica,White,jessica.white@example.com,F,1995-01-17,San Francisco,CA,USA
+6,David,Wilson,david.wilson@example.com,M,1978-03-22,Austin,TX,USA
+7,Linda,Brown,linda.brown@example.com,F,1989-10-10,Denver,CO,USA
+8,James,Garcia,james.garcia@example.com,M,1972-07-05,Seattle,WA,USA
+9,Sarah,Martinez,sarah.martinez@example.com,F,1987-09-28,Miami,FL,USA
+10,Robert,Lee,robert.lee@example.com,M,1993-04-13,Atlanta,GA,USA

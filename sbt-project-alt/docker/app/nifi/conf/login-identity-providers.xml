@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<loginIdentityProviders>
+
+    <!-- Example of configuring the file-based identity provider -->
+    <provider>
+        <identifier>file-identity-provider</identifier>
+        <class>org.apache.nifi.authentication.file.FileIdentityProvider</class>
+        <property name="User Directory">./conf/users.xml</property>
+    </provider>
+
+</loginIdentityProviders>

@@ -1,0 +1,101 @@
+customer_id,first_name,last_name,email,gender,date_of_birth,city,state,country
+1,Jeffery,Galloway,kimberlygonzalez@summers-novak.com,F,1981-10-01,North Shirleymouth,KY,USA
+2,Antonio,Smith,donald31@pratt.com,F,1979-07-27,East Jenna,NE,USA
+3,Regina,Wright,martinezdiana@hotmail.com,F,1978-01-16,Weissmouth,DE,USA
+4,Jeremy,Duke,johnhutchinson@mcguire.com,F,1964-06-08,Stephensonchester,DE,USA
+5,Pamela,Walker,paul60@patrick.com,F,2003-06-03,Port Brett,AK,USA
+6,Matthew,Weber,hmcguire@gmail.com,F,1961-12-21,Bryanthaven,IA,USA
+7,James,Valdez,nicholas65@mcdowell-powell.com,F,1967-04-25,Sheilaport,ND,USA
+8,Patrick,Williams,jimmycallahan@gmail.com,F,1964-10-03,Smithchester,IA,USA
+9,Sean,Douglas,eneal@yahoo.com,M,1997-06-06,Randyburgh,CT,USA
+10,Mason,Herman,oharvey@yahoo.com,F,1956-01-07,Fraziermouth,MI,USA
+11,Ernest,Lopez,ashleyhurley@campbell-adams.com,F,1971-02-27,Atkinsshire,AL,USA
+12,Susan,Golden,rebecca19@james-mooney.biz,M,1991-05-04,West Sarah,PA,USA
+13,Brett,Ferguson,reyestheodore@escobar.biz,F,1970-06-17,North Stevebury,KS,USA
+14,Lance,Valenzuela,dwayne63@gmail.com,M,2002-11-10,Lake Meaganview,SD,USA
+15,Kayla,Mejia,lwerner@yahoo.com,F,1968-09-19,Maciaston,CO,USA
+16,Karen,Padilla,christopher64@gmail.com,M,1954-08-04,North Rebeccahaven,CT,USA
+17,Michael,Hudson,matthew48@elliott-ruiz.com,M,1969-10-26,Jonathanberg,WV,USA
+18,Jacqueline,Chase,johnrodriguez@yahoo.com,M,2000-02-29,South Kimberlyburgh,MD,USA
+19,Nicole,White,allenjanice@hancock-harris.org,M,1970-01-12,Berryfurt,UT,USA
+20,Kimberly,Osborn,maystimothy@byrd-barton.org,F,1958-01-28,Ryanmouth,MD,USA
+21,Angela,Martinez,wendyking@yahoo.com,F,1953-11-27,Hansonville,MS,USA
+22,Brett,Carlson,jeffrey37@bowers.com,F,1979-08-06,East Jessica,MD,USA
+23,Matthew,Schmidt,elliscarla@baker.org,M,2003-05-25,Ayershaven,HI,USA
+24,Caitlin,Anthony,keith37@wu.com,F,2000-11-26,Briannaburgh,IL,USA
+25,Sydney,Small,vmills@gmail.com,M,1989-07-06,East Michaelshire,WI,USA
+26,Erica,Gonzalez,bradydamon@acosta-patterson.com,M,1988-03-18,Ianberg,KY,USA
+27,Cheryl,Lawrence,craig56@gmail.com,M,1998-02-20,East Sara,SD,USA
+28,Sarah,Noble,maryhawkins@pittman.net,M,1998-06-13,Jenkinsport,TX,USA
+29,Anne,Marsh,johnsondonald@kelley.com,M,1958-03-03,Wadeland,CT,USA
+30,Vanessa,Johns,krista38@daniels.com,M,1978-03-22,Landryhaven,OH,USA
+31,Patrick,Wilson,michaelcastillo@yahoo.com,F,1967-06-26,Lake Meganville,CT,USA
+32,Rickey,Martinez,heatherduncan@pearson.biz,F,1999-12-20,West Joseph,IL,USA
+33,Nicole,Mckinney,psmith@yahoo.com,F,1954-10-26,Lake Amystad,AL,USA
+34,Krystal,Spencer,kaitlin42@baker-craig.net,M,1974-06-30,Garciaburgh,VA,USA
+35,Nicholas,Sosa,parkerstephen@hotmail.com,F,1993-03-01,New Stevenbury,MT,USA
+36,Jessica,Clark,patricia16@rodriguez-english.org,M,1981-03-26,South Lisafurt,NY,USA
+37,Matthew,Smith,gene12@allen.net,M,1997-05-13,Port Jamiechester,TN,USA
+38,Gregg,Douglas,mcintoshanthony@montgomery.com,F,1973-05-12,Michelleborough,AR,USA
+39,Daniel,Allen,blarson@dennis.info,M,1959-12-08,West Ariel,FL,USA
+40,Jon,Crosby,egordon@hotmail.com,M,1989-09-12,Derrickside,WV,USA
+41,Rebecca,Cunningham,jake43@gordon.com,M,1996-01-19,Katherinechester,LA,USA
+42,Monica,Noble,aaronwhite@yahoo.com,F,1988-10-06,North Kimberlyburgh,TN,USA
+43,Walter,Dennis,kchung@gmail.com,F,1985-05-29,Soniaburgh,MD,USA
+44,Jenna,Byrd,mikaylacisneros@flowers.net,M,1963-11-20,North Timothymouth,CT,USA
+45,Deborah,Burgess,xgreer@owens.com,F,1960-02-08,New Allenside,ID,USA
+46,Colleen,Lloyd,taylorjose@hotmail.com,F,2006-08-29,New John,GA,USA
+47,Andrea,Jones,reneetucker@hall.com,M,2000-06-24,Lesliemouth,AL,USA
+48,Kathryn,Davis,martinrussell@edwards.com,F,1984-02-25,East Curtis,AZ,USA
+49,Curtis,Rodriguez,william77@gill.com,M,1959-07-04,West Craigfort,GA,USA
+50,Allison,Moore,baileyjohn@evans.com,M,1967-11-13,Lake Wendy,PA,USA
+51,Michael,Brown,rachel98@yahoo.com,M,1967-12-22,Amyside,ID,USA
+52,Meagan,Oliver,greerashley@white-campbell.net,M,1978-02-13,Pricefort,NY,USA
+53,Miguel,Andrews,joneslaura@yahoo.com,F,1984-01-24,Robertland,NC,USA
+54,Bobby,Lewis,qdunn@hart-hunter.com,M,1973-03-22,Port Becky,ME,USA
+55,Shawn,Figueroa,lauren77@gmail.com,M,1964-07-18,Jamesburgh,KY,USA
+56,Michael,Jones,shepherdwillie@rowland-waters.com,F,2004-07-04,South Ashleymouth,MO,USA
+57,Katherine,Garrison,james87@alexander.com,F,2002-08-06,South Stephanie,TX,USA
+58,Jerry,Nash,sandraclark@patel.com,M,1980-12-16,New Jasmine,GA,USA
+59,Jerry,Davis,gomezmisty@gmail.com,F,1993-03-03,Rachelberg,MO,USA
+60,Willie,Robinson,jasmine47@hotmail.com,M,2002-10-13,North Robert,NV,USA
+61,Jacqueline,Baker,kristine82@williams.org,F,1979-02-10,Maysborough,MO,USA
+62,Stephanie,Clarke,jeanette99@mcclain-yoder.biz,M,1977-03-16,Cynthiaborough,WA,USA
+63,Jasmine,Smith,dalton92@hotmail.com,M,1953-11-08,East Roberthaven,MO,USA
+64,Jesse,Gibson,dylanhanson@hotmail.com,M,1980-03-11,Coxchester,OH,USA
+65,Veronica,Roberts,mjackson@gmail.com,M,2005-08-10,Ericland,ID,USA
+66,Nicholas,Harris,johnsonjeffrey@patel-duffy.biz,M,1998-05-25,West Carolynborough,FL,USA
+67,Megan,Gomez,cookcourtney@parker.com,F,1990-04-11,Lozanoton,WI,USA
+68,Kerri,Snyder,danielsanders@yahoo.com,F,1972-04-06,East Patricia,MA,USA
+69,Bruce,Chavez,uchavez@hotmail.com,M,1972-12-08,Waltonside,AL,USA
+70,Trevor,Cole,amber35@hotmail.com,F,1965-06-17,Franciscoberg,NC,USA
+71,Barbara,Buck,sherry04@hotmail.com,F,1959-04-26,Robertsonburgh,OK,USA
+72,William,Spencer,sean73@dennis-williams.net,M,1971-05-11,Pittsland,NV,USA
+73,Lisa,Weeks,kelseycollins@yahoo.com,M,2001-09-19,Bullockbury,OK,USA
+74,Terry,Miller,wnicholson@gonzales.com,F,1980-03-18,Williamshaven,NJ,USA
+75,Mariah,Rojas,jonesjames@hotmail.com,F,1994-09-20,Phillipstown,WV,USA
+76,Christian,Dixon,sarah74@hotmail.com,F,1957-10-30,Patriciashire,CO,USA
+77,Joseph,Fisher,william82@johnson.com,M,1978-08-12,North Kyle,VT,USA
+78,Leah,Ford,dwalters@gmail.com,F,1963-09-08,Kennethberg,MT,USA
+79,Megan,Guzman,katherine62@gmail.com,F,2002-09-05,Hannahfort,WI,USA
+80,Anthony,King,paulcobb@gmail.com,M,1963-07-01,West Katieshire,SC,USA
+81,Robin,Richmond,troy92@turner.com,F,2000-01-08,Johnnyberg,ID,USA
+82,Thomas,Edwards,vwilliams@yahoo.com,M,1985-02-26,South Charlesberg,OK,USA
+83,David,Thomas,william46@watkins-bowen.info,F,1997-04-16,Josephtown,ID,USA
+84,Mary,Johnson,teresahernandez@gmail.com,M,1985-05-09,Krauseborough,KY,USA
+85,Emily,Warner,smeyer@gmail.com,F,1980-03-23,Porterfort,CT,USA
+86,Katherine,Douglas,timperez@myers.net,M,1976-11-17,East Stephanieville,WV,USA
+87,Daniel,Powell,scottaustin@avila.com,M,1960-10-08,Smithstad,NH,USA
+88,Kenneth,Stewart,xhall@hotmail.com,M,1982-12-18,Thomaschester,LA,USA
+89,Cathy,Hopkins,martha48@gmail.com,M,1961-06-03,Quinnton,AZ,USA
+90,Emily,Rodriguez,richard81@wilson-ramirez.biz,M,1993-07-26,South Krystalview,SD,USA
+91,Carolyn,Clark,fostercindy@ellis-norton.info,M,2002-01-31,New Michellehaven,SC,USA
+92,James,Dixon,holly02@harrell.org,F,1965-12-25,Jeffreychester,DE,USA
+93,Lisa,Mcdonald,wjohnson@johnson.com,M,1973-07-24,West Christopherland,GA,USA
+94,Cristina,Rivera,rachelwolfe@mcpherson.com,M,1960-01-01,Lake Stephanie,TN,USA
+95,Joanna,Murray,lsmith@blankenship.info,M,1957-08-07,Amandaport,LA,USA
+96,Alexandra,Williams,keithortega@mack.com,F,1979-05-07,Harriston,LA,USA
+97,Grant,Wright,emily68@perez-anthony.com,M,1961-04-27,Parkerside,MT,USA
+98,Jessica,Williams,iwatkins@hotmail.com,M,1994-03-22,New Robertmouth,WV,USA
+99,John,Thompson,williamrobinson@hotmail.com,M,1957-07-14,New Karen,NJ,USA
+100,Monica,Smith,jesus24@gmail.com,F,1969-09-13,Jonathanshire,WA,USA
