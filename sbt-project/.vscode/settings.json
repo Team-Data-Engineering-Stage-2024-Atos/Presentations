@@ -4,8 +4,8 @@
             "previewLimit": 50,
             "server": "localhost",
             "driver": "PostgreSQL",
-            "name": "postgres_sbt",
-            "connectString": "postgresql://sparkuser:passer@localhost:5432/sparkdb"
+            "name": "postgres",
+            "connectString": "postgresql://sparkuser:passer@localhost:5432/postgres"
         }
     ]
 }
